@@ -134,9 +134,10 @@ normal; } }
         color: white;
         text-decoration: none;
         font-weight: 500;
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         position: relative;
         transition: color 0.3s;
+        font-family: "Orbitron", sans-serif;
       }
 
       nav a::after {
@@ -373,6 +374,42 @@ normal; } }
         word-break: break-word;
       }
 
+      .about-text {
+        text-align: left;
+      }
+
+      @media (min-width: 992px) {
+        .section-title {
+          margin-top: 3.5rem;
+        }
+        #about .about-grid {
+          grid-template-columns: 1fr 1fr;
+          justify-content: center;
+          align-items: center;
+        }
+        #about .about-text {
+          font-size: 1.1rem;
+          line-height: 1.7;
+          text-align: center;
+          max-width: 700px;
+          margin: 0 auto;
+        }
+        #about img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 0;
+        }
+        .features {
+          font-size: 1.35rem;
+          gap: 2rem;
+        }
+        .feature {
+          font-size: 1.2rem;
+          padding: 0.8rem 1.5rem;
+        }
+      }
+
       @media (min-width: 768px) {
         .about-grid {
           grid-template-columns: 1fr 1fr;
@@ -458,7 +495,7 @@ normal; } }
 
       .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: 1fr;
         gap: 1rem;
       }
 
@@ -477,6 +514,27 @@ normal; } }
 
       .gallery-item:hover img {
         transform: scale(1.1);
+      }
+
+      /* Galería de trabajos: dos columnas y centrar última en desktop/tablet */
+      @media (min-width: 769px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .gallery-item {
+          display: flex;
+          justify-content: center;
+        }
+        /* Centrar la última si es impar */
+        .gallery-grid > .gallery-item:last-child:nth-child(odd) {
+          grid-column: 1 / span 2;
+          justify-content: center;
+        }
+        .gallery-item img {
+          max-width: 90%;
+          height: 220px;
+          border-radius: 15px;
+        }
       }
 
       .contact-grid {
@@ -753,6 +811,54 @@ normal; } }
           padding-right: 0.5rem;
         }
       }
+
+      /* Añadir estilos para desktop */
+      @media (min-width: 992px) {
+        #about .about-grid {
+          grid-template-columns: 1fr 1fr;
+          justify-content: center;
+          align-items: center;
+        }
+        #about .about-text {
+          font-size: 1.1rem;
+          line-height: 1.7;
+          text-align: center;
+          max-width: 700px;
+          margin: 0 auto;
+        }
+        #about img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 0;
+        }
+      }
+      @media (min-width: 768px) {
+        .section-title {
+          font-size: 2.8rem;
+        }
+        .features {
+          font-size: 1.25rem;
+          gap: 1.5rem;
+        }
+        .feature {
+          font-size: 1.15rem;
+          padding: 0.7rem 1.3rem;
+        }
+      }
+      @media (min-width: 992px) {
+        .section-title {
+          font-size: 3rem;
+        }
+        .features {
+          font-size: 1.35rem;
+          gap: 2rem;
+        }
+        .feature {
+          font-size: 1.2rem;
+          padding: 0.8rem 1.5rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -870,14 +976,14 @@ normal; } }
 
     <!-- Sobre mí -->
     <section id="about" class="container" style="margin-top: 20px">
+      <h2 class="section-title">Sobre mí</h2>
       <div class="about-grid">
-        <div>
-          <h2 class="section-title">Sobre mí</h2>
-          <img
-            src="./assets/images/foto_Ramon.jpg"
-            alt="Técnico reparando"
-            style="border-radius: 15px"
-          />
+        <img
+          src="./assets/images/foto_Ramon.jpg"
+          alt="Técnico reparando"
+          style="border-radius: 15px"
+        />
+        <div class="about-text">
           <p style="margin-bottom: 1rem">
             Hola! Mi nombre es Ramón, soy técnico especializado en reparación de
             consolas y joysticks con más de 5 años de experiencia en Comodoro
@@ -892,12 +998,12 @@ normal; } }
             Mi objetivo es devolverte tu consola en perfecto estado, con el
             mejor precio y el trato personal que merece tu equipo.
           </p>
-          <div class="features">
-            <span class="feature">✅ 5+ años de experiencia</span>
-            <span class="feature">✅ Garantía</span>
-            <span class="feature">✅ Atención personalizada</span>
-          </div>
         </div>
+      </div>
+      <div class="features">
+        <span class="feature">✅ 5+ años de experiencia</span>
+        <span class="feature">✅ Garantía</span>
+        <span class="feature">✅ Atención personalizada</span>
       </div>
     </section>
 
@@ -980,10 +1086,10 @@ normal; } }
     </section>
 
     <!-- Contacto -->
-    <section id="contact" class="container" style="margin-top: 30px">
+    <section id="contact" class="container" style="margin-top: 90px">
       <div class="contact-grid">
         <div>
-          <h2 class="section-title">Contacto</h2>
+          <h2 class="section-title" style="margin-top: 0">Contacto</h2>
           <p style="margin-bottom: 1rem">
             ¿Tu consola necesita reparación? ¡Escríbeme por WhatsApp o completa
             el formulario!
