@@ -441,6 +441,9 @@ normal; } }
       }
       /* Ajustes para móvil en la sección Sobre mí */
       @media (max-width: 768px) {
+        #about .section-title {
+          margin-bottom: 0.1rem;
+        }
         .about-grid {
           grid-template-columns: 1fr;
         }
@@ -449,7 +452,7 @@ normal; } }
           max-width: 350px;
           height: auto;
           display: block;
-          margin: 0 auto 1.5rem auto;
+          margin: 0 auto 0.1rem auto;
         }
         .features {
           flex-wrap: wrap;
@@ -463,6 +466,10 @@ normal; } }
         }
         #about p {
           word-break: break-word;
+        }
+        /* Contacto: reducir separación del formulario en mobile */
+        #contact .contact-grid > div:last-child {
+          margin-top: -3.2rem;
         }
       }
 
@@ -1243,7 +1250,16 @@ normal; } }
       <div class="footer-bottom">
         <p>&copy; 2025 Comodoro Play! - Todos los derechos reservados</p>
         <div class="visits">
-          Visitas a esta página: <span id="visit-count">Cargando...</span>
+          Visitas a esta página:
+          <a
+            href="https://www.contadorvisitasgratis.com"
+            title="contador para pagina web"
+            ><img
+              src="https://counter1.optistats.ovh/private/contadorvisitasgratis.php?c=bupshy9gjkdbjhxn7mfjcy1fmzptw1n4"
+              border="0"
+              title="contador para pagina web"
+              alt="contador para pagina web"
+          /></a>
         </div>
       </div>
     </footer>
