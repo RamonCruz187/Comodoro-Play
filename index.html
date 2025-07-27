@@ -1,5 +1,3 @@
-@media (min-width: 481px) and (max-width: 630px) { .hero h1 { white-space:
-normal; } }
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -20,7 +18,15 @@ normal; } }
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="icon" href="./assets/images/favicon.png" type="image/x-icon" />
     <style>
+      /* Media query para hero h1 en pantallas medianas */
+      @media (min-width: 481px) and (max-width: 630px) {
+        .hero h1 {
+          white-space: normal;
+        }
+      }
+
       :root {
         --cyan: #00ffff;
         --purple: #a020f0;
@@ -778,6 +784,29 @@ normal; } }
         margin-top: 1rem;
       }
 
+      .console-logos img.xbox-series-logo {
+        transform: scale(1.5);
+        z-index: 1;
+        padding-left: 25px;
+      }
+      @media (max-width: 700px) {
+        .console-logos {
+          flex-direction: column;
+          gap: 1.2rem;
+        }
+        .console-logos img {
+          margin: 0 auto;
+        }
+        .console-logos img.xbox-series-logo {
+          transform: scale(1.9);
+          display: block;
+          margin: 1.5rem auto 0 auto;
+          padding-left: 0;
+          clear: both;
+          margin-bottom: 20px;
+        }
+      }
+
       /* Responsive para móvil */
       @media (max-width: 768px) {
         .mobile-toggle {
@@ -909,6 +938,35 @@ normal; } }
         </li>
         <li><a href="#contact" onclick="closeMobileMenu()">Contacto</a></li>
       </ul>
+      <!-- Imágenes debajo del menú -->
+      <div
+        style="
+          margin-top: 1rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+        "
+      >
+        <img
+          src="./assets/images/joypng1.webp"
+          alt="Logo Comodoro Play"
+          style="
+            width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          "
+        />
+        <img
+          src="./assets/images/joypng2.webp"
+          alt="Icono Comodoro Play"
+          style="
+            width: 200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          "
+        />
+      </div>
     </div>
 
     <!-- Hero -->
@@ -923,8 +981,10 @@ normal; } }
           personalizada y garantía en cada reparación.
         </p>
         <button
-          onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+          type="button"
           class="btn"
+          aria-label="Ir a la sección de contacto"
+          onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
         >
           ¡Quiero reparar mi consola!
         </button>
@@ -938,7 +998,11 @@ normal; } }
         <img src="./assets/images/logo_Ps4.png" alt="PS4" />
         <img src="./assets/images/logo_Ps5.png" alt="PS5" />
         <img src="./assets/images/logo_Xbox_One.png" alt="Xbox One" />
-        <img src="./assets/images/logo_Xbox_Series.png" alt="Xbox Series" />
+        <img
+          src="./assets/images/logo_Xbox_Series.png"
+          alt="Xbox Series"
+          class="xbox-series-logo"
+        />
       </div>
       <p>No reparamos PS3, Xbox 360 ni consolas anteriores.</p>
     </section>
@@ -987,7 +1051,7 @@ normal; } }
       <div class="about-grid">
         <img
           src="./assets/images/foto_Ramon.jpg"
-          alt="Técnico reparando"
+          alt="Foto de Ramón, técnico especializado en consolas"
           style="border-radius: 15px"
         />
         <div class="about-text">
@@ -1072,22 +1136,46 @@ normal; } }
       <p class="section-subtitle">Mira el resultado de nuestras reparaciones</p>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="./assets/images/placa.jpeg" alt="PS4 Antes" />
+          <img
+            src="./assets/images/placa.jpeg"
+            alt="Placa de PS4 antes de reparación"
+            loading="lazy"
+          />
         </div>
         <div class="gallery-item">
-          <img src="./assets/images/joy3.webp" alt="PS4 Después" />
+          <img
+            src="./assets/images/joy3.webp"
+            alt="PS4 después de reparación"
+            loading="lazy"
+          />
         </div>
         <div class="gallery-item">
-          <img src="./assets/images/hdmi.jpg" alt="Joystick PS5" />
+          <img
+            src="./assets/images/hdmi.jpg"
+            alt="Reparación de HDMI en consola"
+            loading="lazy"
+          />
         </div>
         <div class="gallery-item">
-          <img src="./assets/images/joys.jpg" alt="Placa Xbox" />
+          <img
+            src="./assets/images/joys.jpg"
+            alt="Placa de Xbox reparada"
+            loading="lazy"
+          />
         </div>
         <div class="gallery-item">
-          <img src="./assets/images/joys2.jpg" alt="Circuito Reparado" />
+          <img
+            src="./assets/images/joys2.jpg"
+            alt="Circuito de joystick reparado"
+            loading="lazy"
+          />
         </div>
         <div class="gallery-item">
-          <img src="./assets/images/herramientas.jpg" alt="Herramientas Pro" />
+          <img
+            src="./assets/images/herramientas.jpg"
+            alt="Herramientas profesionales de reparación"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
@@ -1176,7 +1264,12 @@ normal; } }
                 required
               />
             </div>
-            <button type="submit" class="btn" style="width: 100%">
+            <button
+              type="submit"
+              class="btn"
+              style="width: 100%"
+              aria-label="Enviar consulta por WhatsApp"
+            >
               Enviar consulta
             </button>
           </form>
@@ -1193,9 +1286,10 @@ normal; } }
           width="100%"
           height="300"
           style="border: 0; border-radius: 15px"
-          allowfullscreen=""
+          allowfullscreen
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación del taller en Google Maps"
         ></iframe>
       </div>
     </section>
